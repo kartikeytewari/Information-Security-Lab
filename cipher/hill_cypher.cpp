@@ -5,6 +5,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void inverse_matrix(int key[n][n], float inverse_key[n][n])
+{
+    // get determitant and adjoint matrix
+    int determinant=get_determinante(key,n);
+    int adjoint[n][n];
+    adjoint_matrix(key, adjoint);
+
+    for (int i=0;i<=n-1;i++)
+    {
+        for (int j=0;j<=n-1;j++)
+        {
+            inverse[i][j]=adjoint[i][j]/determinant;
+        }
+    }
+}
+
+
 string encrypt (string s, string password)
 {
     int n=s.length();
@@ -66,7 +83,8 @@ string decrypt (string s, string password)
     }
 
     int inverse_key[n][n];
-    // generate inverse_key 
+    inverse_matrix(key,inverse_key);
+
 
     int plain_text[n];
     for (int i=0;i<=n-1;i++)
@@ -90,6 +108,7 @@ string decrypt (string s, string password)
 int main()
 {
     int enc_bit;
+    cout << "Encryption/Decryption is done only for 3 character strings"
     cout << "Enter 1 for encryption" << endl;
     cout << "Enter 2 for decryption" << endl << endl;
     cin >> enc_bit;
