@@ -19,11 +19,9 @@ int main()
     for (int i=0;i<=n-1;i++)
     {
         int a=char(s[i]);
-        a+=offset;
-        if (a>=123)
-        {
-            a-=26;
-        }
+        a-=97;
+        a=(a+offset+26)%26;
+        a+=97;
         cout << char(a);
     }
     cout << endl;
