@@ -13,6 +13,7 @@ int main()
     cout << "enter number of rules= ";
     cin >> n;
 
+    // get rule for cipher
     for (int i=0;i<=n-1;i++)
     {
         char a, b;
@@ -27,6 +28,7 @@ int main()
     cout << "enter string= ";
     cin >> s;
 
+    // perform encryption/decryption
     for (int i=0;i<=(int)s.length()-1;i++)
     {
         for (auto it=subs_rule.begin();it!=subs_rule.end();it++)

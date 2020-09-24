@@ -5,6 +5,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// ecnrypt s using password
 string encrypt (string s, string password)
 {
     int n=s.length();
@@ -24,6 +25,7 @@ string encrypt (string s, string password)
     return encrypted_string;
 }
 
+// decrypt s using password
 string decrypt (string s, string password)
 {
     int n=s.length();

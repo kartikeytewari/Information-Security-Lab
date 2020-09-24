@@ -13,6 +13,7 @@ int main()
     cin >> s;
     cout << "enter offser value= ";
     cin >> offset;
+    // decryption_offset=-1*encryption_offset
 
     int n=s.length();
     for (int i=0;i<=n-1;i++)
