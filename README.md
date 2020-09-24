@@ -3,7 +3,7 @@ Codes for Information Security Course
 The repository conatins the code:
 <ol>
     <li>
-        Network packet monioring using Wireshark
+        Network packet capture and monioring using Wireshark
     </li>
     <li>
         Ciphers
