@@ -3,50 +3,65 @@
 # Computer Science and Engineering (Dual Degree)
 # National Institute of Technology, Hamirpur
 import numpy as np
+import sympy
+from sympy import Matrix
 
+# encrypt the string s using the string password 
 def encrypt (s, password):
     n=len(s)
     
+    # make plain text matrix
     plain_text=np.arange(n).reshape(n,1)
     for i in range(0,n):
         plain_text[i][0]=ord(s[i])-ord('a')
 
+    # make key matrix
     key=np.arange(n*n).reshape(n,n)
     for i in range(0,n):
         for j in range(0,n):
             key[i][j]=ord(password[(n*i)+j])-ord('a')
 
+    # get encrypted matrix
     encrypted_text=key.dot(plain_text)
 
+    # generate encrypted string
     ans=""
     for i in range(0,n):
-        # print(encrypted_text[i])
         ans+=chr((encrypted_text[i][0]%26)+ord('a'))
     
     return ans
 
+
+# decrypt s using password
 def decrypt (s, password):
     n=len(s)
 
+    # get encrypted matrix
     encrypted_text=np.arange(n).reshape(n,1)
     for i in range(0,n):
         encrypted_text[i][0]=ord(s[i])-ord('a')
 
+    # get key matrix
     key=np.arange(n*n).reshape(n,n)
     for i in range(0,n):
         for j in range(0,n):
             key[i][j]=ord(password[(n*i)+j])-ord('a')
 
 
-    inverse_key=np.linalg.inv(np.matrix(key))
-    plain_text=inverse_key.dot(encrypted_text)
+    # inverse key matrix to inverse_key (for generating decryption key)
+    inverse_key=Matrix(key).inv_mod(26)
+    np.inverse_key=np.array(inverse_key)
+    plain_text=inverse_key*encrypted_text
 
+    # generate plaintext string
     ans=""
     for i in range(0,n):
-        ans+=chr((plain_text[i][0]%26)+ord('a'))
+        ans+=chr((plain_text[i]%26)+ord('a'))
 
     return ans
 
+
+# get choice
 print("Enter 1 for encryption")
 print("Enter 2 for decryption")
 a=int(input())
@@ -77,4 +92,3 @@ if (a==2):
     else:
         decrypted_string=decrypt(s,password)
         print("The decrypted string is " + decrypted_string)
-
