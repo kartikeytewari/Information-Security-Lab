@@ -1,9 +1,9 @@
 # Information-Security-Lab
 Codes for Information Security Course
-The repository conatins the code:
+The repository conatins the code for:
 <ol>
     <li>
-        Network packet capture and monioring using Wireshark
+        Network packet capturing and monitoring using Wireshark
     </li>
     <li>
         Ciphers
