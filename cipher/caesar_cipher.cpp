@@ -11,7 +11,7 @@ int main()
     int offset;
     cout << "enter string= ";
     cin >> s;
-    cout << "enter offser value= ";
+    cout << "enter offset value= ";
     cin >> offset;
     // decryption_offset=-1*encryption_offset
 
